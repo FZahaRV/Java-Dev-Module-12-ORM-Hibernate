@@ -1,4 +1,4 @@
-package com.goit.clients;
+package com.goit.table_entities.planets;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,17 +8,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "client")
+@Table(name = "planet")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client {
+public class Planet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
-
-    @Column(name = "name", nullable = false, length = 200)
+    private String id;
+    @Column(name = "name")
     private String name;
 }

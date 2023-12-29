@@ -1,9 +1,9 @@
 package com.goit;
 
-import com.goit.clients.Client;
+import com.goit.table_entities.clients.Client;
 import com.goit.entity_service.EntityService;
 import com.goit.hibernate_util.DatabaseUtil;
-import com.goit.planets.Planet;
+import com.goit.table_entities.planets.Planet;
 
 
 public class Main {

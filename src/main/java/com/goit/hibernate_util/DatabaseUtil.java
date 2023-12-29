@@ -1,8 +1,8 @@
 package com.goit.hibernate_util;
 
-import com.goit.clients.Client;
-import com.goit.planets.Planet;
-import com.goit.tickets.Ticket;
+import com.goit.table_entities.clients.Client;
+import com.goit.table_entities.planets.Planet;
+import com.goit.table_entities.tickets.Ticket;
 
 import lombok.Getter;
 import org.flywaydb.core.Flyway;

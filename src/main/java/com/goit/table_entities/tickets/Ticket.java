@@ -1,4 +1,4 @@
-package com.goit.tickets;
+package com.goit.table_entities.tickets;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
