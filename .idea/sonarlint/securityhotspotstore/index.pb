@@ -31,3 +31,10 @@ W
 'src/main/java/com/goit/generic_dao.java,e\b\eb268bb9e71065feac0daa82e0420c102ea05ca5
 [
 +src/main/java/com/goit/generic_dao/Dao.java,9\d\9d96d0b592c3aa503ba153ad9b7bf5adf6226193
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
