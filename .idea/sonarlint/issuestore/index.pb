@@ -38,3 +38,7 @@ W
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+h
+8src/main/java/com/goit/entity_service/EntityService.java,2\d\2d9b549e508e33fe8023de213198077eb8362f6a
+a
+1src/main/java/com/goit/generic_dao/EntityDao.java,4\1\413ea3fdc392544c043696b6b2c35e7a11ae01d7

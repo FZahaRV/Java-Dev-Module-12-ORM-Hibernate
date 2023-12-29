@@ -1,35 +1,34 @@
 package com.goit;
 
 import com.goit.clients.Client;
-import com.goit.clients.ClientService;
+import com.goit.entity_service.EntityService;
 import com.goit.hibernate_util.DatabaseUtil;
 import com.goit.planets.Planet;
-import com.goit.planets.PlanetService;
 
 
 public class Main {
     public static void main(String[] args) {
-        ClientService clientService = new ClientService();
+        EntityService<Client> clientService = new EntityService<>(Client.class);
         Client newClient = new Client();
         newClient.setName("John Doe");
-        clientService.saveClient(newClient);
-        System.out.println(clientService.findClientById(11L));
-        Client client = clientService.findClientById(1L);
+        clientService.save(newClient);
+        System.out.println(clientService.findById(11L));
+        Client client = clientService.findById(1L);
         System.out.println("Found Person: " + client.getName());
         client.setName("Jane Doe");
-        clientService.updateClient(client);
+        clientService.update(client);
 
-        PlanetService planetService = new PlanetService();
+        EntityService<Planet> planetService = new EntityService<>(Planet.class);
         Planet newPlanet = new Planet();
         newPlanet.setName("Hypatia");
         newPlanet.setId("HYP");
-        planetService.deletePlanet(newPlanet);
-        planetService.savePlanet(newPlanet);
-        System.out.println(planetService.findClientById("HYP"));
-        Planet planet = planetService.findClientById("VEN");
+        planetService.delete(newPlanet);
+        planetService.save(newPlanet);
+        System.out.println(planetService.findById("HYP"));
+        Planet planet = planetService.findById("VEN");
         System.out.println("Found planet: " + planet.getName());
         planet.setName("Ven Us");
-        planetService.updatePlanet(planet);
+        planetService.update(planet);
         DatabaseUtil.getInstance().close();
     }
 }

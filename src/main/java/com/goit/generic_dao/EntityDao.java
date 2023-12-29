@@ -8,10 +8,10 @@ import org.hibernate.Transaction;
 
 import java.io.Serializable;
 
-public class Dao<T> {
+public class EntityDao<T> {
     private final SessionFactory sessionFactory = DatabaseUtil.getInstance().getSessionFactory();
     private final Class<T> entityClass;
-    public Dao(Class<T> entityClass) {
+    public EntityDao(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
     public void save(T entity) {
