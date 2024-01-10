@@ -21,4 +21,5 @@ public class Client {
 
     @Column(name = "name", nullable = false, length = 200)
     private String name;
+
 }

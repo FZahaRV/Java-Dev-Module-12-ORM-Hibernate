@@ -1,12 +1,15 @@
 package com.goit.table_entities.tickets;
 
+import com.goit.table_entities.clients.Client;
+import com.goit.table_entities.planets.Planet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ticket")
@@ -16,15 +19,23 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Ticket {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @GeneratedValue
     private Long id;
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-    @Column(name = "client_id")
-    private int clientId;
-    @Column(name = "from_planet_id")
-    private String fromPlanetId;
-    @Column(name = "to_planet_id")
-    private String toPlanetId;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Timestamp createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client clients;
+
+    @ManyToOne
+    @JoinColumn(name = "from_planet_id", nullable = false)
+    private Planet fromPlanet;
+
+    @ManyToOne
+    @JoinColumn(name = "to_planet_id", nullable = false)
+    private Planet toPlanet;
 }
