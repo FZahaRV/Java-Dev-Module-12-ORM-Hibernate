@@ -33,10 +33,6 @@ public class EntityDao<T> {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
             entity = session.get(entityClass, id);
-            if (entity instanceof Client) {
-                setTickets((Client) entity);
-            }
-            Hibernate.initialize(entity);
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,15 +55,6 @@ public class EntityDao<T> {
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-    public void setTickets(Client client) {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("FROM Ticket WHERE id = :id");
-            query.setParameter("id", client.getId());
-            client.setTicket(query.getResultList());
-            tx.commit();
         }
     }
 }

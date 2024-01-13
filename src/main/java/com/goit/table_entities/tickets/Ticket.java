@@ -38,4 +38,11 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "to_planet_id", nullable = false)
     private Planet toPlanet;
+
+    @Override
+    public String toString() {
+        return "Ticket{id=" + id + ", createdAt=" + createdAt +
+                "},{client" + client + "},{fromPlanetId" + fromPlanet +
+                "},{toPlanetId" + toPlanet + "}";
+    }
 }

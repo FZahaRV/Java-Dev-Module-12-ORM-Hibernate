@@ -26,4 +26,9 @@ public class Client {
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Ticket> ticket;
+
+    @Override
+    public String toString() {
+        return "Client{id" + id + "},{name" + name + "}";
+    }
 }
