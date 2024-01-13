@@ -2,11 +2,16 @@ package com.goit.generic_dao;
 
 import com.goit.hibernate_util.DatabaseUtil;
 
+import com.goit.table_entities.clients.Client;
+import com.goit.table_entities.tickets.Ticket;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.Query;
 import java.io.Serializable;
+import java.util.List;
 
 public class EntityDao<T> {
     private final SessionFactory sessionFactory = DatabaseUtil.getInstance().getSessionFactory();
@@ -26,7 +31,13 @@ public class EntityDao<T> {
     public T findById(Serializable id) {
         T entity = null;
         try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
             entity = session.get(entityClass, id);
+            if (entity instanceof Client) {
+                setTickets((Client) entity);
+            }
+            Hibernate.initialize(entity);
+            tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,6 +59,15 @@ public class EntityDao<T> {
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    public void setTickets(Client client) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery("FROM Ticket WHERE id = :id");
+            query.setParameter("id", client.getId());
+            client.setTicket(query.getResultList());
+            tx.commit();
         }
     }
 }

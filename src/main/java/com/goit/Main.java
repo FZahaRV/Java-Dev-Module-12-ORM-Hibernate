@@ -32,7 +32,7 @@ public class Main {
 
         EntityService<Ticket> ticketService = new EntityService<>(Ticket.class);
         Ticket newTicket = new Ticket();
-        newTicket.setClients(clientService.findById(1L));
+        newTicket.setClient(clientService.findById(1L));
         newTicket.setFromPlanet(planetService.findById("MARS"));
         newTicket.setToPlanet(planetService.findById("VEN"));
         ticketService.delete(newTicket);

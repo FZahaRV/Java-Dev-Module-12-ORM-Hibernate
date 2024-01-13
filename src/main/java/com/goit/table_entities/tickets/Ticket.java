@@ -29,7 +29,7 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
-    private Client clients;
+    private Client client;
 
     @ManyToOne
     @JoinColumn(name = "from_planet_id", nullable = false)

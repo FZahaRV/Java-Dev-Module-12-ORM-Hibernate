@@ -1,11 +1,13 @@
 package com.goit.table_entities.clients;
 
+import com.goit.table_entities.tickets.Ticket;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "client")
@@ -22,4 +24,6 @@ public class Client {
     @Column(name = "name", nullable = false, length = 200)
     private String name;
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Ticket> ticket;
 }
